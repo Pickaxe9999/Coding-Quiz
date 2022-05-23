@@ -1,0 +1,46 @@
+/*Global styling*/
+*{
+    margin: none;
+    padding: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*Card styling start*/
+#card{
+    text-align: center;
+    position: relative;
+}
+
+button{
+    background-color: darkblue;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    border-radius: 10px;
+    border-style: none;
+}
+
+button:hover{
+    background-color: magenta;
+    border-color: white;
+}
+
+ul li{
+    list-style: none;
+}
+
+.next-index{
+    position: absolute;
+    left: 0;
+}
+/*Card styling end*/
+
+/*Title card styling start*/
+.quiz-begin{
+    margin: 100px;
+}
+
+.quiz-begin button{
+    position:relative;
+}
+/*Title card styling end*/

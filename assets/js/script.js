@@ -39,8 +39,6 @@ var nextIndex = function(event){
         currentCard = 0;
         indexCards[currentCard].style.display = "block";
     }
-    
-    
 }
 
 var beginQuiz = function(){
