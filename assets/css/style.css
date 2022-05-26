@@ -16,7 +16,7 @@ button{
     background-color: darkblue;
     color: white;
     padding: 10px 20px 10px 20px;
-    border-radius: 10px;
+    border-radius: 7px;
     border-style: none;
 }
 
@@ -25,8 +25,20 @@ button:hover{
     border-color: white;
 }
 
+ul{
+    width:50%;
+}
+
 ul li{
     list-style: none;
+    text-align: left;
+    margin: 10px;
+    width: 200px;
+}
+
+ul li button{
+    width: 100%;
+    text-align: left;
 }
 
 .next-index{
