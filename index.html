@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coding Quiz!</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="highscore-table">view high score</a>
+        <p id="timer">Time Left: </p>
+    </header>
+
+    <main class="cards" id="cards">
+        <!--quiz start title card-->
+        <div class="quiz-begin" id="card">
+            <h1>Coding Quiz Challenge</h1>
+            <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
+            <button type="button" id="start-quiz">Start Quiz</button>
+
+        </div>
+
+
+        <!--questions begin-->
+        <div class="question" id="card">
+            <h2>Commonly used data types do NOT include:</h2>
+            <ul class="answers">
+                <li><button type="button">1. strings</button></li>
+                <li><button type="button">2. booleans</button></li>
+                <li><button type="button">3. alerts</button></li>
+                <li><button type="button">4. numbers</button></li>
+            </ul>
+            <button type="button" id="next-index">next question</button>
+        </div>
+
+        <div class="question" id="card">
+            <h2>The conditino in an if/else statement is enclosed with ______.</h2>
+            <ul class="answers">
+                <li><button type="button">1. quotes</button></li>
+                <li><button type="button">2. curly brackets</button></li>
+                <li><button type="button">3. parenthesis</button></li>
+                <li><button type="button">4. square brackets</button></li>
+            </ul>
+            <button type="button" id="next-index">next question</button>
+        </div>
+
+        <div class="question" id="card">
+            <h2>Arrays in Javascript can be used to store _____.</h2>
+            <ul class="answers">
+                <li><button type="button">1. numbers and strings</button></li>
+                <li><button type="button">2. other arrays</button></li>
+                <li><button type="button">3. booleans</button></li>
+                <li><button type="button">4. all of the above</button></li>
+            </ul>
+            <button type="button" id="next-index">next question</button>
+        </div>
+
+        <div class="question" id="card">
+            <h2>String values must be enclised within _____ when being assigned to variables.</h2>
+            <ul class="answers">
+                <li><button type="button">1. commas</button></li>
+                <li><button type="button">2. curly brackets</button></li>
+                <li><button type="button">3. quotes</button></li>
+                <li><button type="button">4. parenthesis</button></li>
+            </ul>
+            <button type="button" id="next-index">next question</button>
+        </div>
+
+        <!--high score entry table-->
+        <div class="highscore-table" id="card">
+            <h2>All Done!</h2>
+            <p id="show-score">Your final score is: </p>
+            <p>Enter Initials: <input type="text"/></p>
+            <br>
+            <button type="submit" id="save-highscore">Submit</button>
+        </div>
+
+        <!--high score display table-->
+        <div class="highscore-entry" id="card">
+            <p>High scores</p>
+            <ol class="high-scores"></ol>
+            <button type="button" id="restart-quiz">Go Back</button>
+            <button type="button">Clear HighScores</button>
+        </div>
+
+        
+    </main>
+
+
+
+    <script type="text/javascript" src="./assets/js/script.js"></script>
+</body>
+</html>

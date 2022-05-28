@@ -1,0 +1,58 @@
+/*Global styling*/
+*{
+    margin: none;
+    padding: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/*Card styling start*/
+#card{
+    text-align: center;
+    position: relative;
+}
+
+button{
+    background-color: darkblue;
+    color: white;
+    padding: 10px 20px 10px 20px;
+    border-radius: 7px;
+    border-style: none;
+}
+
+button:hover{
+    background-color: magenta;
+    border-color: white;
+}
+
+ul{
+    width:50%;
+}
+
+ul li{
+    list-style: none;
+    text-align: left;
+    margin: 10px;
+    width: 200px;
+}
+
+ul li button{
+    width: 100%;
+    text-align: left;
+}
+
+#next-index{
+    position: absolute;
+    left: 0;
+}
+/*Card styling end*/
+
+/*Title card styling start*/
+#quiz-begin{
+    margin: 100px;
+}
+
+#quiz-begin button{
+    position:relative;
+}
+/*Title card styling end*/
