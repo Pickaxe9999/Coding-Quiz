@@ -41,18 +41,18 @@ ul li button{
     text-align: left;
 }
 
-.next-index{
+#next-index{
     position: absolute;
     left: 0;
 }
 /*Card styling end*/
 
 /*Title card styling start*/
-.quiz-begin{
+#quiz-begin{
     margin: 100px;
 }
 
-.quiz-begin button{
+#quiz-begin button{
     position:relative;
 }
 /*Title card styling end*/
