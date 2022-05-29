@@ -85,6 +85,7 @@ var btnHandler = function(event){
             creatHighscore();
             nextIndex(event);
             textClear();
+            isItCorrectDisplay.style.borderTop = "none";
         }
 
     //player clears all highscores
@@ -196,6 +197,7 @@ var resetHighscores = function(){
 }
 
 var isItCorrect = function(btnEl){
+    isItCorrectDisplay.style.borderTop = "2px solid grey";
     if(btnEl.getAttribute("data-answer")){
         isItCorrectDisplay.textContent = "Correct!";
     }else{

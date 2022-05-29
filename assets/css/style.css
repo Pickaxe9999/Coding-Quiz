@@ -5,8 +5,18 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 
-/*Card styling start*/
+#view-highscores{
+    color: blue;
+}
+
+
+/*Basic card styling start*/
 #card{
     text-align: center;
     position: relative;
@@ -40,7 +50,12 @@ ul li button{
     width: 100%;
     text-align: left;
 }
-/*Card styling end*/
+
+#isItCorrect{
+    color: gray;
+    font-size: large;
+}
+/*Basic card styling end*/
 
 /*Title card styling start*/
 #quiz-begin{
@@ -51,3 +66,23 @@ ul li button{
     position:relative;
 }
 /*Title card styling end*/
+
+/*Highscore table styling start*/
+.highscore-table h2{
+    font-weight: bold;
+    font-size: larger;
+}
+
+#highscores{
+    margin: 0 auto 20px auto;
+    width: 200px;
+    padding: 0;
+}
+
+#highscores li{
+    list-style-position: inside;
+    text-align: left;
+    background-color: lightblue;
+    padding: 2px;
+}
+/*Highscore table styling end*/
