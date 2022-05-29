@@ -19,7 +19,6 @@
             <h1>Coding Quiz Challenge</h1>
             <p>Try to answer the following code-related questions within the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</p>
             <button type="button" id="start-quiz">Start Quiz</button>
-
         </div>
 
 
@@ -27,49 +26,45 @@
         <div class="question" id="card">
             <h2>Commonly used data types do NOT include:</h2>
             <ul class="answers">
-                <li><button type="button">1. strings</button></li>
-                <li><button type="button">2. booleans</button></li>
-                <li><button type="button">3. alerts</button></li>
-                <li><button type="button">4. numbers</button></li>
+                <li><button type="button" id="next-index">1. strings</button></li>
+                <li><button type="button" id="next-index">2. booleans</button></li>
+                <li><button type="button" id="next-index" data-answer="correct">3. alerts</button></li>
+                <li><button type="button" id="next-index">4. numbers</button></li>
             </ul>
-            <button type="button" id="next-index">next question</button>
         </div>
 
         <div class="question" id="card">
-            <h2>The conditino in an if/else statement is enclosed with ______.</h2>
+            <h2>The condition in an if/else statement is enclosed with ______.</h2>
             <ul class="answers">
-                <li><button type="button">1. quotes</button></li>
-                <li><button type="button">2. curly brackets</button></li>
-                <li><button type="button">3. parenthesis</button></li>
-                <li><button type="button">4. square brackets</button></li>
+                <li><button type="button" id="next-index">1. quotes</button></li>
+                <li><button type="button" id="next-index">2. curly brackets</button></li>
+                <li><button type="button" id="next-index" data-answer="correct">3. parenthesis</button></li>
+                <li><button type="button" id="next-index">4. square brackets</button></li>
             </ul>
-            <button type="button" id="next-index">next question</button>
         </div>
 
         <div class="question" id="card">
             <h2>Arrays in Javascript can be used to store _____.</h2>
             <ul class="answers">
-                <li><button type="button">1. numbers and strings</button></li>
-                <li><button type="button">2. other arrays</button></li>
-                <li><button type="button">3. booleans</button></li>
-                <li><button type="button">4. all of the above</button></li>
+                <li><button type="button" id="next-index">1. numbers and strings</button></li>
+                <li><button type="button" id="next-index">2. other arrays</button></li>
+                <li><button type="button" id="next-index">3. booleans</button></li>
+                <li><button type="button" id="next-index" data-answer="correct">4. all of the above</button></li>
             </ul>
-            <button type="button" id="next-index">next question</button>
         </div>
 
         <div class="question" id="card">
-            <h2>String values must be enclised within _____ when being assigned to variables.</h2>
+            <h2>String values must be enclosed within _____ when being assigned to variables.</h2>
             <ul class="answers">
-                <li><button type="button">1. commas</button></li>
-                <li><button type="button">2. curly brackets</button></li>
-                <li><button type="button">3. quotes</button></li>
-                <li><button type="button">4. parenthesis</button></li>
+                <li><button type="button" id="next-index">1. commas</button></li>
+                <li><button type="button" id="next-index">2. curly brackets</button></li>
+                <li><button type="button" id="next-index" data-answer="correct">3. quotes</button></li>
+                <li><button type="button" id="next-index">4. parenthesis</button></li>
             </ul>
-            <button type="button" id="next-index">next question</button>
         </div>
 
         <!--high score entry table-->
-        <div class="highscore-table" id="card">
+        <div class="highscore-entry" id="card">
             <h2>All Done!</h2>
             <p id="show-score">Your final score is: </p>
             <p>Enter Initials: <input type="text" id="highscore-name"/></p>
@@ -78,15 +73,15 @@
         </div>
 
         <!--high score display table-->
-        <div class="highscore-entry" id="card">
+        <div class="highscore-table" id="card">
             <p>High scores</p>
             <ol id="highscores"></ol>
             <button type="button" id="restart-quiz">Go Back</button>
             <button type="button" id="clear-highscores">Clear HighScores</button>
         </div>
-
-        
     </main>
+
+    <p id="isItCorrect"></p>
 
 
 

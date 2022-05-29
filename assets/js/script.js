@@ -7,6 +7,7 @@ var quiz = document.getElementById("cards");
 var timerEl = document.getElementById("timer");
 var submitName = document.getElementById("highscore-name");
 var highscoreTable = document.getElementById("highscores");
+var isItCorrectDisplay = document.getElementById("isItCorrect");
 
 //keep track of the current card
 var currentCard = 0;
@@ -54,13 +55,28 @@ var restartQuiz = function(event){
 //determine which function should be ran depending on the button clicked
 var btnHandler = function(event){
     var btnEl = event.target;
+    //if the player clicks an answer button
     if(btnEl.matches("#next-index")){
-        nextIndex(event);
+        if(btnEl.getAttribute("data-answer")){
+            nextIndex(event);
+            isItCorrect(btnEl);
+        }else{
+            nextIndex(event);
+            isItCorrect(btnEl);
+        }
+
+    //if the player hits start quiz
     }else if(btnEl.matches("#start-quiz")){
         startTimer();
         nextIndex(event);
+
+    //if the player hits restart quiz
     }else if(btnEl.matches("#restart-quiz")){
         restartQuiz(event);
+        timer = totalTime;
+        textClear();
+
+    //The player submit a highscore
     }else if(btnEl.matches("#save-highscore")){
         //check if the user actually input anything for a username
         if(submitName.value === ""){
@@ -68,23 +84,34 @@ var btnHandler = function(event){
         }else{
             creatHighscore();
             nextIndex(event);
+            textClear();
         }
+
+    //player clears all highscores
     }else if(btnEl.matches("#clear-highscores")){
         resetHighscores();
+        while(highscoreTable.lastChild){
+            highscoreTable.removeChild(highscoreTable.lastChild);
+        }
     }
 }
 
 //when the user selects the next button then it goes to the next index in the quiz
 var nextIndex = function(event){
+    //gets the parent element of the button that was clicked
     var parentTargetEl = event.target.parentElement;
-    //if the target clicked it the next button then it moves on to the next index
+
+    //Because the answer buttons are wrapped in li and they themselves are wrapped in li elements then .parent element is used to find the wrapping div
+    if(parentTargetEl.parentElement.matches(".answers")){
+        parentTargetEl = parentTargetEl.parentElement.parentElement;
+    }
     currentCard = parentTargetEl.getAttribute("data-card-index");
     indexCards[currentCard].style.display = "none";
     currentCard++;
     indexCards[currentCard].style.display = "block";
 }
 
-
+//timer for the quiz
 var startTimer = function(){
     var textHold = timerEl.textContent;
 
@@ -99,7 +126,7 @@ var startTimer = function(){
                 timerEl.textContent = textHold + timer;
                 timer--;
             }else{
-                timer = totalTime;
+                timerEl.textContent = textHold + timer;
                 clearInterval(updateTime);
             }
             
@@ -166,6 +193,19 @@ var printHighscore = function(allHighscoresObj){
 var resetHighscores = function(){
     allHighscores = [];
     localStorage.clear();
+}
+
+var isItCorrect = function(btnEl){
+    if(btnEl.getAttribute("data-answer")){
+        isItCorrectDisplay.textContent = "Correct!";
+    }else{
+        isItCorrectDisplay.textContent = "Incorrect";
+        timer -= 10;
+    }
+}
+
+var textClear = function(){
+    isItCorrectDisplay.textContent = " ";
 }
 
 
