@@ -1,15 +1,22 @@
 //global variables
-var startQuizBtn = document.getElementById("start-quiz")
-var indexCards = document.getElementById("cards").children; 
-var quiz = document.getElementById("cards"); 
+
+var indexCards = document.getElementById("cards").children; //create an array by selecting each direct child element within the class cards element
+var quiz = document.getElementById("cards");
 //https://stackoverflow.com/questions/2617629/how-to-get-all-elements-inside-div-that-starts-with-a-known-text
 //used stackoverflow question to figure out how to select all children elements of a parent
+var timerEl = document.getElementById("timer");
+var submitName = document.getElementById("highscore-name");
+var highscoreTable = document.getElementById("highscores");
 
 //keep track of the current card
 var currentCard = 0;
-var score = 0;
-var timerEl = document.getElementById("timer");
-var totalTime = 10;
+
+//array of local highscores
+var allHighscores = [];
+
+//quiz total time length
+var totalTime = 75;
+//the time that will actually be displayed
 var timer = totalTime;
 
 
@@ -47,7 +54,6 @@ var restartQuiz = function(event){
 //determine which function should be ran depending on the button clicked
 var btnHandler = function(event){
     var btnEl = event.target;
-    console.log(btnEl);
     if(btnEl.matches("#next-index")){
         nextIndex(event);
     }else if(btnEl.matches("#start-quiz")){
@@ -56,8 +62,15 @@ var btnHandler = function(event){
     }else if(btnEl.matches("#restart-quiz")){
         restartQuiz(event);
     }else if(btnEl.matches("#save-highscore")){
-        //savehighscore
-        nextIndex(event);
+        //check if the user actually input anything for a username
+        if(submitName.value === ""){
+            alert("Please enter a name to save your score!");
+        }else{
+            creatHighscore();
+            nextIndex(event);
+        }
+    }else if(btnEl.matches("#clear-highscores")){
+        resetHighscores();
     }
 }
 
@@ -97,14 +110,69 @@ var startTimer = function(){
             score = 0;
             clearInterval(updateTime);
         }
-        
     }, 1000);
+}
+
+//print the current highscore table table
+var creatHighscore = function(savedData){
+    if(!savedData){
+        var player = {
+            name: submitName.value,
+            score: timer
+        }
+    }else{
+        var player = {
+            name: savedData.name,
+            score: savedData.score
+        }
+    }
     
+    //add the new player to the array
+    allHighscores.push(player);
+
+    //print the array to the highscore screen
+    printHighscore(allHighscores[allHighscores.length-1]);
+
+    //save the highscores locally
+    saveHighscore();
+}
+
+//save the highscore locally
+var saveHighscore = function(){
+    localStorage.setItem("highscoreTable", JSON.stringify(allHighscores));
+}
+
+//load locally saved highscores
+var getHighscore = function(){
+    var savedData = localStorage.getItem("highscoreTable");
+    savedData = JSON.parse(savedData);
+
+    if(savedData === null){
+        return false;
+    }
+
+    for(var i = 0; i < savedData.length; i++){
+        creatHighscore(savedData[i]);
+    }
+}
+
+var printHighscore = function(allHighscoresObj){
+    var listItemEl = document.createElement("li");
+    listItemEl.textContent = allHighscoresObj.name + " - " + allHighscoresObj.score;
+    highscoreTable.appendChild(listItemEl);
+}
+
+//reset highscores
+var resetHighscores = function(){
+    allHighscores = [];
+    localStorage.clear();
 }
 
 
 //start the quiz
 beginQuiz();
 
+
 //listen for the button push to display the next card
 quiz.addEventListener("click", btnHandler);
+getHighscore();
