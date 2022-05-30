@@ -8,6 +8,7 @@ var timerEl = document.getElementById("timer");
 var submitName = document.getElementById("highscore-name");
 var highscoreTable = document.getElementById("highscores");
 var isItCorrectDisplay = document.getElementById("isItCorrect");
+var goToTable = document.getElementById("view-highscores");
 
 //keep track of the current card
 var currentCard = 0;
@@ -134,8 +135,11 @@ var startTimer = function(){
         //if they are out of time display that they are and reset timer and set score to 0
         }else if(timer === 0){
             timerEl.textContent = "Out of Time! No Score";
-            timer = totalTime;
             score = 0;
+            indexCards[currentCard].style.display = "none";
+            currentCard = indexCards.length - 2;
+            indexCards[currentCard].style.display = "block";
+            isItCorrectDisplay.style.borderTop = "none";
             clearInterval(updateTime);
         }
     }, 1000);
@@ -154,6 +158,9 @@ var creatHighscore = function(savedData){
             score: savedData.score
         }
     }
+
+    //reset the timer
+    timer = totalTime;
     
     //add the new player to the array
     allHighscores.push(player);
@@ -196,6 +203,7 @@ var resetHighscores = function(){
     localStorage.clear();
 }
 
+//checks if a question is corret
 var isItCorrect = function(btnEl){
     isItCorrectDisplay.style.borderTop = "2px solid grey";
     if(btnEl.getAttribute("data-answer")){
@@ -206,6 +214,7 @@ var isItCorrect = function(btnEl){
     }
 }
 
+//clears the displayed text below questions if not on a question
 var textClear = function(){
     isItCorrectDisplay.textContent = " ";
 }
@@ -217,4 +226,15 @@ beginQuiz();
 
 //listen for the button push to display the next card
 quiz.addEventListener("click", btnHandler);
+
+//jump to highscore table
+goToTable.addEventListener("click", function(){
+    indexCards[currentCard].style.display = "none";
+    currentCard = indexCards.length - 1;
+    indexCards[currentCard].style.display = "block";
+    clearInterval(startTimer);
+    textClear();
+    isItCorrectDisplay.style.borderTop = "none";
+});
+
 getHighscore();
