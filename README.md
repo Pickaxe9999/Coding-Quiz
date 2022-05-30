@@ -21,3 +21,10 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 
+Screenshot-
+![image](https://user-images.githubusercontent.com/103781767/170898166-fb175726-0fb4-40d1-9a18-cb1a95877879.png)
+
+Last Updated by - Jacob_Hannah(jacob.hannah164@gmail.com) 
+Last Updated - 5/29/2022 
+Website link - https://pickaxe9999.github.io/portfolio/
+GitHub - https://github.com/Pickaxe9999/portfolio.git
